@@ -17,7 +17,7 @@ const roboto = Roboto({
    });
 
 export const metadata: Metadata = {
-  title: "Gaymin shoop",
+  title: "Gayming shoop",
   description: "Продажа видеоигр",
 };
 
@@ -28,7 +28,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${roboto.variable} ${oswald.variable} w-full bg-zinc-950`}>
+      <body className={`${roboto.variable} ${oswald.variable} text-white w-full bg-zinc-950`}>
         <div className="__next">
           <Header />
           <main className="main w-full" id="main">

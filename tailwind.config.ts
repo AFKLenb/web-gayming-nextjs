@@ -22,7 +22,7 @@ const config: Config = {
       roboto: 'var(--font-roboto)',
     },
     backgroundImage: {
-      hero: 'url(/assets/image/hero/Byi.jpg)',
+      hero: 'url(/assets/image/hero/CHEL.jpg)',
     },
     extend: {
       backgroundImage: {

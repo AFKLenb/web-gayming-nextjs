@@ -11,6 +11,10 @@ const axionsClient = axios.create({
 
 const getBenefists = () => axionsClient.get('/benefits?populate=*');
 
+const getArticles = () => axionsClient.get('/articles?populate=*');
+
 export default {
     getBenefists,
+    getArticles,
 }
+

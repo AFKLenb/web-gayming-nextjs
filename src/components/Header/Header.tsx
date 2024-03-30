@@ -1,33 +1,58 @@
 "use client";
-import Image from 'next/image'
-import Link from 'next/link'
-import React, { useState } from 'react'
-import Navbar from '../Navbar/Navbar'
-import { FaBars } from 'react-icons/fa6'
-import NavbarMobile from '../NavbarMobile/NavbarMobile'
+import React, { useEffect, useState } from 'react';
+import { RegisterLink, LoginLink, LogoutLink, useKindeBrowserClient } from "@kinde-oss/kinde-auth-nextjs";
+import Image from 'next/image';
+import Link from 'next/link';
+import Navbar from '../Navbar/Navbar';
+import { FaBars } from 'react-icons/fa6';
+import NavbarMobile from '../NavbarMobile/NavbarMobile';
 
 const Header = () => {
 
-  const [ openNav, setOpenNav] = useState(false);
+  const [openNav, setOpenNav] = useState(false);
+  const { user } = useKindeBrowserClient();
+  useEffect(() => {
+    console.log(user)
+  }, [user])
 
   return (
-    <header className=' w-full h-[70px]  border-b border-zinc-800 bg-zinc-950 '>
-      <div className="container mx-auto flex items-center h-full">
-        <div className="w-full h-full relative flex items-center justify-between ">
+    <header className='w-full h-[70px] border-b border-zinc-800 bg-zinc-950'>
+      <div className="container mx-auto h-full flex items-center">
+        <div className="relative w-full h-full flex items-center justify-between">
           <Link href="/" className=' w-[100px] h-[50px]'>
             <Image className='w-full h-full rounded-md bg-white' src='/assets/image/logo.png' width={200} height={50} alt='Логотип сайта'  />
           </Link>
           <NavbarMobile containerStyle={` ${openNav ? 'max-h-max border-b border-zinc-800 p-[15px]' : 'max-h-0 overflow-hidden py-0 px-[15px] border-zinc-800/0'} fixed w-full left-0 right-0 top-[71px] transition-all duration-400 bg-zinc-900 md:hidden`}/>
-          <Navbar  containerStyle='hidden md:flex' />
-          <div className="">
+          {/* start component navbar */}
+          <Navbar containerStyle='hidden md:flex' />
+          {/* end component navbar */}
+          <div className=''>
             <ul className="flex items-center gap-4">
-              <li className=" inline-flex ">
-                <Link href="" className=' uppercase text-white/50 hover:text-white transition-all duration-300 '>Войти</Link> 
-              </li>
+              {user ?
+                <>
+                  <div className='flex items-center gap-2'>
+                    <Link href={'/profile'}>
+                      <Image src={user.picture?? ''} alt={'Изображение профиля'} width={50} height={50} className='w-[50px] h-[50px] rounded-full object-cover'/>
+                    </Link>
+                    <LogoutLink className='uppercase text-white/50 hover:text-white transition-all'>Выйти</LogoutLink>
+                  </div>
+                </>
+                :
+                <>
+                  <li className="inline-flex">
+                    <RegisterLink className='uppercase text-white/50 hover:text-white transition-all'>Регистрация</RegisterLink>
+                  </li>
+                  <li className="inline-flex">
+                    <LoginLink className='uppercase text-white/50 hover:text-white transition-all'>Войти</LoginLink>
+                  </li>
+                </>
+              }
             </ul>
-            <button onClick={ () => setOpenNav(!openNav)} className=' text-white text-xl w-[45px] h-[45px] flex items-center justify-center border border-zinc-500 rounded-md md:hidden'>
-              <FaBars/>
+            {/* start menu bar */}
+            <button onClick={() => setOpenNav(!openNav)} className='text-xl text-white w-[45px] h-[45px] flex items-center justify-center border border-zinc-500 rounded-md md:hidden'>
+              <FaBars />
             </button>
+            {/* end menu bar */}
           </div>
         </div>
       </div>

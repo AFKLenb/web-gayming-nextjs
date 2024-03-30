@@ -13,7 +13,7 @@ const menuLinks = [
 const Navbar = ( { containerStyle} : {containerStyle: string} ) => {
   return (
     <nav className={`${containerStyle}`}>
-        <menu className='w-full flex items-center justify-center gap-4 '>
+        <menu className='w-full flex items-center justify-center gap-4 z-10'>
             {menuLinks.map(( item, index) =>{
                 return(
                     <>

@@ -13,7 +13,7 @@ const menuLinks = [
 const NavbarMobile = ( { containerStyle} : { containerStyle : string}) => {
   return (
     <nav className={`${containerStyle}`}>
-       <menu className='w-full flex flex-col gap-4 '>
+       <menu className='w-full flex flex-col gap-4 z-10 rela'>
             {menuLinks.map(( item, index) =>{
                 return(
                     <>

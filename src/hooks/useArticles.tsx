@@ -10,13 +10,14 @@ const useArticles = () => {
         getArticles();
     },[])
 
- const getArticles = () => {
-    GlobalApi.getArticles().then(resp =>{
-        console.log(resp.data.data)
+  const getArticles = () => {
+    GlobalApi.getArticles().then(resp => {
         setArticlesList(resp.data.data)
-    })
- }
- return articlesList;
+    });
+  }
+
+  return articlesList;
+
 }
 
-export default useArticles
+export default useArticles;

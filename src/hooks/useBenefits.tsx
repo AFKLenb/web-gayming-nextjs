@@ -1,18 +1,16 @@
-'use client';
-import GlobalApi from '@/utils/GlobalApi'
-import React, { useEffect, useState } from 'react'
+"use client";
+import GlobalApi from '@/utils/GlobalApi';
+import React, { useEffect, useState } from 'react';
 
 const useBenefits = () => {
-
     const [benefitsList, setBenefitsList] = useState([]);
 
-    useEffect(() =>{
-      getBenefists();
+    useEffect(() => {
+      getBenef();
     },[]);
   
-    const getBenefists = () => {
+    const getBenef = () => {
       GlobalApi.getBenefists().then(resp => {
-        console.log(resp.data.data);
         setBenefitsList(resp.data.data);
       });
     }

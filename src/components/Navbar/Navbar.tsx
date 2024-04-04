@@ -5,8 +5,8 @@ import React from 'react'
 const menuLinks = [
     { label: 'Главная', url: '/' },
     { label: 'О нас', url: '/about' },
-    { label: 'Акции', url: '/sales' },
-    { label: 'Каталог', url: '/catalog' },
+    { label: 'Новости', url: '/articles' },
+    { label: 'Игры', url: '/games' },
     { label: 'Контакты', url: '/contacts' },
 ]
 

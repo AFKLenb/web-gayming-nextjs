@@ -1,15 +1,16 @@
 'use client';
-import Articles from '@/components/Articles/Articles';
+import Games from '@/components/Games/Games';
 import useArticles from '@/hooks/useArticles';
+import useGames from '@/hooks/useGames';
 import React from 'react';
 
 export default function page() {
 
-  const getArticles = useArticles();
+  const getGames = useGames();
 
   return (
     <>
-      <Articles getArticles={getArticles} />
+      <Games getGames={getGames} />
     </>
   )
 }

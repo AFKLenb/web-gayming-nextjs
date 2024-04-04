@@ -12,7 +12,7 @@ const useSingleArticle = (id) => {
  
   const getSingleArticle = () => {
     GlobalApi.getSingleArticle(id).then(resp => {
-        setDetailArticle(resp.data.data);
+        setDetailArticle(resp.data.data[0]);
     });
   }
 

@@ -25,7 +25,7 @@ export default function page({params}) {
                     {getArticles.length > 0 ? getArticles.map((item, index) => {
                         return(
                             <div key={index} className = "w-full border border-zinc-800 rounded-xl relative" >
-                                <div className="w-full h-[350px] overflow-hidden rounded-xl relative">
+                                <div className="w-full h-[350px] overflow-hidden rounded-xl  relative">
                                     <Image src={process.env.NEXT_PUBLIC_STRAPI_API_URL + item.attributes?.image?.data.attributes?.url} alt={'Картинка записи'} width={270} height={270} className='w-full h-full object-cover object-top' />
                                     <div className="w-full flex flex-col items-start justify-betweenn absolute bottom-0 bg-zinc-700/90 p-2 ">
                                         <div className="w-full flex items-start justify-between mb-3">
